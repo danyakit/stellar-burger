@@ -1,11 +1,13 @@
 import { ChangeEvent, SyntheticEvent } from 'react';
 
+export type FormValues = {
+  name: string;
+  email: string;
+  password: string;
+};
+
 export type ProfileUIProps = {
-  formValue: {
-    name: string;
-    email: string;
-    password: string;
-  };
+  formValue: FormValues;
   isFormChanged: boolean;
   handleSubmit: (e: SyntheticEvent) => void;
   handleCancel: (e: SyntheticEvent) => void;

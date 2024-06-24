@@ -16,6 +16,12 @@ export type TConstructorIngredient = TIngredient & {
   id: string;
 };
 
+export type TBurgerConstructor = {
+  bun: Partial<TIngredient> | null;
+  ingredients: TConstructorIngredient[];
+  orderModalData: TOrder | null;
+};
+
 export type TOrder = {
   _id: string;
   status: string;
@@ -35,6 +41,13 @@ export type TOrdersData = {
 export type TUser = {
   email: string;
   name: string;
+};
+
+export type TUserState = {
+  isAuthChecked: boolean; 
+  isAuthenticated: boolean; 
+  loginUserRequest: boolean;
+  loginError: string;
 };
 
 export type TTabMode = 'bun' | 'sauce' | 'main';
