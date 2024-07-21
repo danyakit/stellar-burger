@@ -7,7 +7,7 @@ import {
   updateUser,
   selectUser,
   selectIsUserDataLoading
-} from '../../services/slices/userSlice';
+} from '../../slices/user';
 import { FormValues } from '../../components/ui/pages/profile/type';
 
 type ProfileFormFields = {

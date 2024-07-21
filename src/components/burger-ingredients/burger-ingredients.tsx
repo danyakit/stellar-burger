@@ -4,11 +4,7 @@ import { TIngredient, TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 
 import { useSelector } from '../../services/store';
-import {
-  selectBuns,
-  selectMain,
-  selectSauce
-} from '../../services/slices/burgersSlice';
+import { selectBuns, selectMain, selectSauce } from '../../slices/ingredients';
 
 export const BurgerIngredients: FC = () => {
   const buns = useSelector(selectBuns);

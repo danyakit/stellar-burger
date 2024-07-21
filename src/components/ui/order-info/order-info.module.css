@@ -2,7 +2,16 @@
   margin: 0 auto;
   width: 640px;
 }
+
+.wrap_not_modal {
+  margin-top: 120px;
+}
+
 .number {
+  font-family: Iceland;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 24px;
   text-align: center;
 }
 
