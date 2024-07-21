@@ -16,24 +16,20 @@ import { AppHeader } from '@components';
 import '../../index.css';
 import { useEffect } from 'react';
 import { Routes, Route, useParams } from 'react-router-dom';
-import { ProtectedRoute } from '../protectedRoute/protectedRoute';
+import { ProtectedRoute } from '../protected-route/index';
 import { Modal } from '../modal';
 import { OrderInfo } from '../../components/order-info';
 import { IngredientDetails } from '../../components/ingredient-details';
 import { useSelector, useDispatch } from '../../services/store';
-import {
-  getUser,
-  selectIsUserDataLoading
-} from '../../services/slices/userSlice';
-import { fetchIngredients } from '../../services/slices/burgersSlice';
+import { getUser, selectIsUserDataLoading } from '../../slices/user';
+import { fetchIngredients } from '../../slices/ingredients';
 import { useNavigate, useLocation } from 'react-router';
 import { getCookie } from '../../utils/cookie';
-import { isLoadingType } from '../../utils/checkLoading';
 
 const App = () => {
   const location = useLocation();
   const background = location.state?.background;
-  const isUselLoading = useSelector(selectIsUserDataLoading);
+  const isUserLoading = useSelector(selectIsUserDataLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -52,7 +48,7 @@ const App = () => {
 
   useEffect(() => {
     const atoken = getCookie('accessToken');
-    if (atoken && !isLoadingType(isUselLoading, 'getUser')) dispatch(getUser());
+    if (atoken && !isUserLoading) dispatch(getUser());
     dispatch(fetchIngredients());
   }, []);
 

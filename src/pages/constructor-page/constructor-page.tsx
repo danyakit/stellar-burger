@@ -3,13 +3,10 @@ import { useSelector } from '../../services/store';
 import { BurgerConstructor, BurgerIngredients } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
-import { selectIsDataLoading } from '../../services/slices/burgersSlice';
-import { isLoadingType } from '../../utils/checkLoading';
+import { selectIsDataLoading } from '../../slices/ingredients';
 
 export const ConstructorPage: FC = () => {
-  const isDataLoading = useSelector(selectIsDataLoading);
-  const isLoading =
-    isDataLoading && !isLoadingType(isDataLoading, 'orderBurger'); // чтобы процесс оформления заказа был иначе отображен
+  const isLoading = useSelector(selectIsDataLoading);
 
   return (
     <>

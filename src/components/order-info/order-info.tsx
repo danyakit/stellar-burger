@@ -4,11 +4,8 @@ import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
 import { useSelector, useDispatch } from '../../services/store';
 
-import {
-  selectIngrediens,
-  selectCurrentOrder,
-  getOrder
-} from '../../services/slices/burgersSlice';
+import { selectIngrediens } from '../../slices/ingredients';
+import { selectCurrentOrder, getOrder } from '../../slices/orders';
 import { useParams } from 'react-router';
 
 export const OrderInfo: FC = () => {
